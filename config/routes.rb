@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "home#index"
   post 'import_csv', to: 'home#import_csv'
+  get 'export_csv', to: 'home#export_csv'
 end
