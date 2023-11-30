@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_17_172210) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_30_191602) do
+  create_table "chapters", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "squads", force: :cascade do |t|
     t.text "name"
     t.integer "dri_id"
@@ -23,6 +41,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_17_172210) do
     t.integer "squad_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_id"
+    t.integer "chapter_id"
+    t.integer "department_id"
   end
 
 end

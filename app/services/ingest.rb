@@ -36,7 +36,11 @@ class Ingest
       department.update(dri_id: department_dri_user.id)
   
       # Assign squad_id to users if available
-      contributor_user.update(squad_id: squad.id)
+      contributor_user.update(
+        squad_id: squad.id, 
+        group_id: group.id,
+        chapter_id: chapter.id,
+        department_id: department.id)
     end
   end
 end

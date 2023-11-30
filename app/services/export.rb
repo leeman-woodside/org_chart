@@ -11,11 +11,22 @@ class Export
       Squad.includes(:users).find_each do |squad|
         squad.users.each do |user|
           contributor_email = user.email
+          group_id = user.group_id
+          chapter_id = user.chapter_id
+          department_id = user.department_id
+
+          group = Squad.find_by(id: group_id)
+          chapter = Squad.find_by(id: chapter_id)
+          department = Squad.find_by(id: department_id)
+          
+          squad_dri_user = User.find_by(id: squad.dri_id)
+          group_dri_user = User.find_by(id: group.dri_id)
+          chapter_dri_user = User.find_by(id: chapter.dri_id)
+          department_dri_user = User.find_by(id: department.dri_id)
+
 
           # Add each user with their squad information to the CSV row
-          csv << [contributor_email, squad.name]
-
-          # squad.dri_email, squad.group_name, squad.group_dri_email, squad.chapter_name, squad.chapter_dri_email, squad.department_name, squad.department_dri_email
+          csv << [contributor_email, squad.name, squad_dri_user.email, group.name, group_dri_user.email, chapter.name, chapter_dri_user.email, department.name, department_dri_user.email]
         end
       end
     end
