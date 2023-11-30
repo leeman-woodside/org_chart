@@ -1,19 +1,55 @@
-<h1>Home</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Org Chart Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px; /* Add padding to the body */
+    }
 
+    h1 {
+      margin-bottom: 20px; /* Add margin to the bottom of the h1 */
+    }
 
-<%= form_tag(import_csv_path, multipart: true) do %>
+    form {
+      margin-bottom: 20px; /* Add margin to the bottom of the form */
+    }
+
+    input[type="file"] {
+      margin-right: 10px; /* Add margin to the right of the file input */
+    }
+
+    button {
+      padding: 10px 20px; /* Add padding to the button */
+      background-color: #007bff; /* Set background color */
+      color: white; /* Set text color */
+      border: none; /* Remove border */
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Change background color on hover */
+    }
+  </style>
+</head>
+<body>
+  <h1>Org Chart Challenge</h1>
+
+  <%= form_tag(import_csv_path, multipart: true) do %>
     <%= file_field_tag :csv_file %>
     <%= submit_tag 'Upload CSV' %>
   <% end %>
 
   <button id="exportButton">Export Database as CSV</button>
 
-
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('exportButton').addEventListener('click', function() {
-      # Redirect to the export_csv route to trigger CSV export
-      window.location.href = '/export_csv';
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('exportButton').addEventListener('click', function() {
+        // Redirect to the export_csv route to trigger CSV export
+        window.location.href = '/export_csv';
+      });
     });
-  });
-</script>
+  </script>
+</body>
+</html>
