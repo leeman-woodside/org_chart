@@ -5,31 +5,31 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px; /* Add padding to the body */
+      padding: 20px; 
     }
 
     h1 {
-      margin-bottom: 20px; /* Add margin to the bottom of the h1 */
+      margin-bottom: 20px; 
     }
 
     form {
-      margin-bottom: 20px; /* Add margin to the bottom of the form */
+      margin-bottom: 20px;
     }
 
     input[type="file"] {
-      margin-right: 10px; /* Add margin to the right of the file input */
+      margin-right: 10px;
     }
 
     button {
-      padding: 10px 20px; /* Add padding to the button */
-      background-color: #007bff; /* Set background color */
-      color: white; /* Set text color */
-      border: none; /* Remove border */
+      padding: 10px 20px; 
+      background-color: #007bff; 
+      color: white;
+      border: none;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #0056b3; /* Change background color on hover */
+      background-color: #0056b3; 
     }
   </style>
 </head>
@@ -46,7 +46,6 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('exportButton').addEventListener('click', function() {
-        // Redirect to the export_csv route to trigger CSV export
         window.location.href = '/export_csv';
       });
     });
